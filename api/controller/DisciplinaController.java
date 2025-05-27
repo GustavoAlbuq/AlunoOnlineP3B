@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/disciplinas")
+@RequestMapping("/api/disciplinas")
 public class DisciplinaController {
 
     @Autowired
@@ -18,13 +18,13 @@ public class DisciplinaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void criarDisciplina(@RequestBody Disciplina disciplina){
-        //disciplina minusculo se torna java a partir daqui
         disciplinaService.criarDisciplina(disciplina);
     }
 
-    @GetMapping("/{idProfessor}")
+    @GetMapping("/professor/{idProfessor}")
     @ResponseStatus(HttpStatus.OK)
     public List<Disciplina> listaDisciplinaPorIdProfessor(@PathVariable Long idProfessor){
         return disciplinaService.listarDisciplinaPorIdProfessor(idProfessor);
     }
+
 }
