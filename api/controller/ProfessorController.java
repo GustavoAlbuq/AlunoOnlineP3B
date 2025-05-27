@@ -35,14 +35,15 @@ public class ProfessorController {
     }
 
     @DeleteMapping("/{idProfessor}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT) // 204 - Sucesso sem conteúdo
     public void deletarProfessor(@PathVariable Long idProfessor){
         professorService.deletarProfessor(idProfessor);
     }
 
     @PutMapping("/{idProfessor}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.OK) // 200 - Atualizado com sucesso
     public void atualizarProfessor(@PathVariable Long idProfessor, @RequestBody Professor professor){
         professorService.atualizarProfessor(idProfessor, professor);
     }
+
 }
